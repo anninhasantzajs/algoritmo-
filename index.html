@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salário do Funcionário</title>
+</head>
+<body>
+    <h2>Cadastro de Funcionário</h2>
 
+    <label for="nome">Nome do Funcionário:</label>
+    <input type="text" id="nome" placeholder="Digite o nome"><br><br>
+
+    <label for="salario">Salário:</label>
+    <input type="number" id="salario" placeholder="Digite o salário" step="0.01"><br><br>
+
+    <label for="mes">Mês:</label>
+    <input type="text" id="mes" placeholder="Digite o mês"><br><br>
+
+    <button onclick="mostrarMensagem()">Mostrar Mensagem</button>
+
+    <h3 id="mensagem"></h3>
+
+    <script>
+        function mostrarMensagem() {
+            const nome = document.getElementById('nome').value;
+            const salario = parseFloat(document.getElementById('salario').value);
+            const mes = document.getElementById('mes').value;
+
+            if (nome && salario && mes) {
+                document.getElementById('mensagem').innerText =
+                    `O funcionário ${nome} tem um salário de R$${salario.toFixed(2)} em ${mes}.`;
+            } else {
+                document.getElementById('mensagem').innerText = "Por favor, preencha todos os campos.";
+            }
+        }
+    </script>
+</body>
+</html>
